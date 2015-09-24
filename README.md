@@ -34,5 +34,5 @@ $ go generate
 
 ## Author
 
-[Svett Ralchev](http://blog.ralch.com)
+Svett Ralchev - http://blog.ralch.com
 
