@@ -2,41 +2,44 @@ package stack
 
 import "testing"
 
+var itemOne TValue = new(int)
+var itemTwo TValue = new(int)
+
 func TestPush(t *testing.T) {
 	stack := &Stack{}
-	stack.Push(TValue(1))
+	stack.Push(itemOne)
 
 	if len(stack.data) != 1 {
 		t.Errorf("Expected data to have length 1, but have %d", len(stack.data))
 	}
 
-	if stack.data[0] != TValue(1) {
+	if stack.data[0] != itemOne {
 		t.Errorf("Expect first element to be equal to 1, but it is %d", stack.data[0])
 	}
 }
 
 func TestPushManyElements(t *testing.T) {
 	stack := &Stack{}
-	stack.Push(TValue(1))
-	stack.Push(TValue(2))
+	stack.Push(itemOne)
+	stack.Push(itemTwo)
 
 	if len(stack.data) != 2 {
 		t.Errorf("Expected data to have length 1, but have %d", len(stack.data))
 	}
 
-	if stack.data[0] != TValue(1) {
+	if stack.data[0] != itemOne {
 		t.Errorf("Expect first element to be equal to 1, but it is %d", stack.data[0])
 	}
 
-	if stack.data[1] != TValue(2) {
+	if stack.data[1] != itemTwo {
 		t.Errorf("Expect second element to be equal to 2, but it is %d", stack.data[0])
 	}
 }
 
 func TestPop(t *testing.T) {
 	stack := &Stack{}
-	stack.Push(TValue(1))
-	stack.Push(TValue(2))
+	stack.Push(itemOne)
+	stack.Push(itemTwo)
 
 	value, err := stack.Pop()
 
@@ -44,7 +47,7 @@ func TestPop(t *testing.T) {
 		t.Error(err)
 	}
 
-	if *value != TValue(2) {
+	if value != itemTwo {
 		t.Errorf("Expect retrieved element to be equal to 2, but it is %d", stack.data[0])
 	}
 
@@ -62,6 +65,6 @@ func TestPopWhenStackIsEmpty(t *testing.T) {
 	}
 
 	if value != nil {
-		t.Errorf("Expected value to be nil, but it is %v", *value)
+		t.Errorf("Expected value to be nil, but it is %v", value)
 	}
 }
