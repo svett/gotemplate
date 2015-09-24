@@ -1,7 +1,9 @@
 # Go templates
 
 This repository contains a set of templates that can be substitute by [gotemplate](https://github.com/ncw/gotemplate).
-command line tool.
+command line tool. Presently, it contains the following templates:
+
+- [Stack](http://bit.ly/1Pwvd5W) data struct. Go documentation [here](https://godoc.org/github.com/svett/gotemplate/stack).
 
 ## Requirments
 
